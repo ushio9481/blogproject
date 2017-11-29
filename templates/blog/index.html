@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML1.0 Transitional//EN""www.w3.org/...al.dtd">
+<html xmlns="www.w3.org/1999/xhtml">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Gakki House</title>
+  <style type="text/css">
+  *{
+    margin:0px;
+    padding:0px;
+    }
+  #top{
+       width:100%;
+       height:700px;
+       position:relative;
+       }
+  #top .xinyuan{
+       width:100%;
+       height:700px;
+       position:absolute;
+       left:0px;
+       top:0px;
+       }
+  #top ul.button li{
+    width:50px;
+    height:10px;
+    background:#000;
+    float:left;
+    margin:0px 5px;
+    list-style:none;
+    border:1px dotted #fff;
+    }
+  #top ul.button{
+    width:260px;
+    height:20px;
+    position:absolute;
+    left:43%;
+    bottom:50px;
+    display:line-block;
+    }
+  #top ul.button li.hover{
+    background:#fff;
+    }
+  #part1{
+    width:1120px;
+    height:480px;
+    margin:0px auto;
+    padding-top:5px;
+    background:white;
+  }
+  #part1left{
+    width:300px;
+    height:442px;
+    float:left;
+    padding-left:5px;
+  }
+  #part1right{
+    width:800px;
+    height:442px;
+    float:right;
+  }
+  #part1right p.biaoti{
+    border-bottom:1px dashed #c9c9c9;
+  }
+  #part1right ul.news{
+    margin:15px;
+    color:#1E90FF
+  }
+  #part1right ul li{
+    margin:5px;
+  }
+  #xian{
+    margin:0px auto;
+    padding:0px;
+  }
+  #main{
+    width:1120px;
+    height:460px;
+    margin:0px auto;
+    padding:0px;
+    background:white;
+  }
+  #main p.BI{
+    text-align:center;
+    font-size:30px;
+    color:pink;
+    padding:10px;
+  }
+  #mainleft{
+    float:left;
+    width:300px;
+    height:400px;
+  }
+  #mainright{
+    float:right;
+    height:400px;
+    width:800px;
+  }
+  #nav {
+    height:30px;
+    background:#00BFFF;
+    color:#fff;
+   }
+  #nav_ ul{
+     list-style:none;
+    }
+    #nav_ ul li {
+     float:left;
+     width:100px;
+     font-size:12px;
+     text-align:center;
+     border-right:1px solid #339;
+     height:30px
+    }
+    #nav_ ul li span {
+     position:relative;
+     top:8px;
+    }
+    #nav_ {
+    position:absolute;
+    width:1000px;
+    left:50%;
+    margin-left:-500px;
+   }
+   #bottom{
+    height:50px;
+    background:black;
+    color:white;
+    filter:alpha(opacity=70);
+    -moz-opacity:0.7;
+    opacity:0.7;
+   }
+   #bottom p.di{
+    padding:20px 300px;
+    font-size:10px;
+   }
+   #beijing{
+    background:url("{% static 'images/huase.jpg' %}");
+    margin:0px;
+   }
+   #bu{
+    width:1120px;
+    height:auto;
+    background:white;
+    margin:0px auto;
+   }
+   a.sj {
+    color:white; 
+    text-decoration:none;
+   }
+   a.sj:visited {
+    color:#fff;
+    text-decoration:none;
+   }
+   a.sj:hover {
+    color:black;
+    text-decoration:none;
+   }
+   a.newmc {
+    color:#1E90FF;
+    text-decoration:none;
+   }
+ </style>
+ </head>
+ <body>
+  <div id="top">
+   <div class="xinyuan" style="background:url('xinyuan4.jpg') no-repeat center"></div>
+   <div class="xinyuan" style="background:url('xinyuan3.jpg') no-repeat center"></div>
+   <div class="xinyuan" style="background:url('xinyuan2.jpg') no-repeat center"></div>
+   <div class="xinyuan" style="background:url('xinyuan1.jpg') no-repeat center"></div>
+   <ul class="button">
+    <li class="hover"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+   </ul>
+  </div>
+  <div id="nav">
+   <div id="nav_">
+    <ul>
+     <li><span>home</span></li>
+     <li><span><a href="{% url 'blog:blog_page' %}" class="sj">blog</a></span></li>
+     <li><span><a href="" class="sj">IN news</a></span></li>
+     <li><span><a href="movie.html" class="sj">music/movie</a></span></li>
+     <li><span><a href="" class="sj">photo</a></span></li>
+    </ul>
+   </div>
+  </div>
+  <div id="beijing">
+  <div id="bu">
+  <div id="part1">
+   <div id="part1left">
+    <img src="{% static 'images/left.jpg' %}"/>
+   </div>
+  <div id="part1right">
+   <p class="biaoti"><img src="{% static 'images/right.jpg' %}"></p>
+   <ul class="news">
+    {% block main %}
+        {% for post in post_list %}
+    <li><a href="{{ post.get_absolute_url }}" class="newmc">{{ post.title }}</a></li>
+        {% empty %}
+    <li>还没有发布文章</li>
+        {% endfor %}
+    {% endblock main %}
+   </ul>
+  </div>
+  </div>
+  <hr id="xian" align=center width=1000 color=#987cb9 size=1 />
+  <div id="main">
+   <p class="BI">Blogger Introduction</p>
+   <div id="mainleft"><img src="shaonian.gif" /></div>
+   <div id="mainright">
+   <p>this is my personal introduction</p>
+   </div>
+  </div>
+  </div>
+  </div>
+  <div id="bottom">
+   <p class="di">&copy;USHIOright 2014-2015 make for myself!</p>
+  </div>
+
+
+
+ <script language="javascript" src="jquery-2.1.3.min.js"></script>
+ <script type="text/javascript">
+  var _index=0;
+  var timePlay=null;
+  $("#top .xinyuan").eq(0).show().siblings("div").hide();
+  $("ul.button li").hover(function(){
+  clearInterval(timePlay);
+      _index=$(this).index();
+      $(this).addClass("hover").siblings().removeClass("hover");
+      $("#top .xinyuan").eq(_index).fadeIn().siblings("div").fadeOut();
+  },function(){
+      autoPlay();
+  });
+  function autoPlay(){
+  timePlay=setInterval(function(){
+  _index++;
+  if(_index<4){
+  $("ul.button li").eq(_index).addClass("hover").siblings().removeClass("hover");
+  $("#top .xinyuan").eq(_index).fadeIn().siblings("div").fadeOut();
+  }else{_index=-1;}
+  },2000);
+  };
+  autoPlay();
+ </script>
+ </body>
+</html>

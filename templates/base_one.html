@@ -1,0 +1,239 @@
+{% load staticfiles %}
+{% load blog_tags %}
+<!DOCTYPE html>
+<html>
+ <head>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- css -->
+
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/pace.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/highlights/github.css' %}">
+
+    <!-- js -->
+    <script src="{% static 'blog/js/jquery-2.1.3.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/pace.min.js' %}"></script>
+    <script src="{% static 'blog/js/modernizr.custom.js' %}"></script>  
+  <title>在地球看火星的吃瓜群众</title>
+  <style>
+   *{
+    padding:0px;
+    margin:0px;
+    font-size:12px;
+   }
+   a.sj {
+    color:white; 
+    text-decoration:none;
+   }
+   a.sj{
+    text-decoration:none;
+   }
+   a.sj:visited {
+    color:#fff;
+    text-decoration:none;
+   }
+   a.sj:hover {
+    color:black;
+    text-decoration:none;
+   }
+   a.js {
+    color:black; 
+    text-decoration:none;
+   }
+   a.js{
+    text-decoration:none;
+   }
+   a.js:visited {
+    color:black;
+    text-decoration:none;
+   }
+   a.js:hover {
+    color:black;
+    text-decoration:none;
+   }
+   ul li a.bt {
+    color:#3CB371; 
+    text-decoration:none;
+    font-size:20px;
+   }
+   ul li a.bt{
+    text-decoration:none;
+   }
+   ul li a.bt:visited {
+    color:#3CB371;
+    text-decoration:none;
+   }
+   ul li a.bt:hover {
+    color:black;
+    text-decoration:none;
+   }
+   #c_header,#nav_ {
+    position:absolute;
+    width:1000px;
+    left:50%;
+    margin-left:-500px;
+   }
+   #bottom p.di{
+    padding:10px 300px;
+	font-size:10px;
+   }
+   #bottom {
+    height:50px;
+    background:black;
+    color:white;
+    filter:alpha(opacity=70);
+    -moz-opacity:0.7;
+    opacity:0.7;
+   }
+   #header {
+    height:450px;
+    background:url({% static 'images/top.jpg' %}) no-repeat center;
+    margin:0px auto;
+   }
+   #nav {
+    height:30px;
+    background:#00BFFF;
+    color:#fff;
+   }
+   #content {
+    background:url("huase.jpg");
+    height:1080px;
+   }
+   #nav_ ul{
+     list-style:none;
+    }
+    #nav_ ul li {
+     float:left;
+     width:100px;
+     font-size:12px;
+     text-align:center;
+     border-right:1px solid #339;
+     height:30px;
+    }
+    #nav_ ul li span {
+     position:relative;
+     top:8px;
+    }
+    span.highlighted {
+            color: red;
+    }
+   input::-webkit-input-placeholder{ /*WebKit browsers*/
+    color: white;
+   }
+   input::-moz-input-placeholder{ /*Mozilla Firefox*/
+    color: white;
+   }
+   input::-ms-input-placeholder{ /*Internet Explorer*/ 
+    color: white;
+   }
+   DIV.pagination { 
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; MARGIN: 7px;
+	 PADDING-TOP: 2px; FONT-FAMILY: "Lucida Sans Unicode",
+	 "Lucida Grande", LucidaGrande, "Lucida Sans", Geneva, Verdana, sans-serif 
+   } 
+   DIV.pagination A { 
+	PADDING-RIGHT: 0.64em; PADDING-LEFT: 0.64em; PADDING-BOTTOM: 0.43em;
+	 MARGIN: 2px; COLOR: #fff; PADDING-TOP: 0.5em; 
+	BACKGROUND-COLOR: #00BFFF; TEXT-DECORATION: none 
+   } 
+	DIV.pagination A:hover { 
+	PADDING-RIGHT: 0.64em; PADDING-LEFT: 0.64em; PADDING-BOTTOM: 0.43em;
+	 MARGIN: 2px; COLOR: #fff; PADDING-TOP: 0.5em; BACKGROUND-COLOR: #de1818  
+   } 
+	DIV.pagination A:active { 
+	PADDING-RIGHT: 0.64em; PADDING-LEFT: 0.64em; PADDING-BOTTOM: 0.43em;
+	 MARGIN: 2px; COLOR: #fff; PADDING-TOP: 0.5em; BACKGROUND-COLOR: #de1818 
+	}  
+  </style>
+ </head>
+ <body>
+  <div id="header">
+   <div id="c_header"></div>
+  </div>
+  <div id="nav">
+   <div id="nav_">
+    <ul>
+     <li><span><a href="{% url 'blog:index' %}" class="sj">home</a></span></li>
+     <li><span><a href="{% url 'blog:blog_page' %}" class="sj">blog</a></span></li>
+     <li><span><a href="#" class="sj">IN news</a></span></li>
+     <li><span><a href="#" class="sj">music/movie</a></span></li>
+     <li><span><a href="{% url 'blog:photo' %}" class="sj">photo</a></span></li>
+     <li>
+     <form role="search" method="get" id="searchform" action="{% url 'haystack_search' %}" style="border:none">
+      <input type="search" name="q" placeholder="搜索" required style="height:30px;background:#00BFFF;color:white">
+      <button type="submit" style="color:black"><span class="ion-ios-search-strong" style="top:-3px"></span></button>
+     </form>
+     </li>
+    </ul>
+   </div>
+  </div>
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8">
+                {% block main %}
+                {% endblock main %}
+            </main>
+            <aside class="col-md-4">
+
+                <div class="widget widget-recent-posts">
+                    <h3 class="widget-title">最新文章</h3>
+                    {% get_recent_posts as recent_post_list %}
+                    <ul>
+                        {% for post in recent_post_list %}
+                            <li>
+                                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                            </li>
+                        {% empty %}
+                            暂无文章！
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="widget widget-archives">
+                    <h3 class="widget-title">归档</h3>
+                    {% archives as date_list %}
+                    <ul>
+                        {% for date in date_list %}
+                            <li>
+                                <a href="{% url 'blog:archives' date.year date.month %}">{{ date.year }}
+                                    年 {{ date.month }} 月</a>
+                            </li>
+                        {% empty %}
+                            暂无归档！
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="widget widget-category">
+                    <h3 class="widget-title">分类</h3>
+                    {% get_categories as category_list %}
+                    <ul>
+                        {% for category in category_list %}
+                            <li>
+                                <a href="{% url 'blog:category' category.pk %}">{{ category.name }}</a>
+                            </li>
+                        {% empty %}
+                            暂无分类！
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="rss">
+                    <a href=""><span class="ion-social-rss-outline"></span> RSS 订阅</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+  <div id="bottom">
+   <p class="di" align=center >&copy;OKAZAKI USHIO の blog<br />
+   闽ICP备17031317号</p>
+  </div>
+  <script src="{% static 'blog/js/script.js' %}"></script>
+ </body>
+</html>
