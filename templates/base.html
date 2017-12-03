@@ -233,11 +233,11 @@
      <li>
         <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
      </li>
+   {% empty %}
+      暂无文章！
+   {% endfor %}
      <p></p>
    </ul>
-    {% empty %}
-      暂无文章！
-    {% endfor %}
   </div>
   </div>
   <hr id="xian" align=center width=1000 color=#987cb9 size=1 />
